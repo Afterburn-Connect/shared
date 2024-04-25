@@ -17,7 +17,7 @@ pub enum EventType {
 #[derive(Debug, Deserialize, Serialize, TS)]
 #[ts(export)]
 pub struct Event {
-    pub type: EventType,
+    pub event_type: EventType,
     pub id: Option<String>,
     pub message: Option<Message>,
     pub user: Option<String>
