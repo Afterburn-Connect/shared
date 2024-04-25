@@ -1,3 +1,5 @@
+use core::f32;
+
 use serde::{Deserialize, Serialize};
 use ts_rs::TS;
 
@@ -32,5 +34,9 @@ pub struct LoginRequest {
 #[ts(export)]
 pub struct StatusResponse {
     pub db: bool,
+    pub cpu: f32,
+    pub mem: i32,
+    pub redis: bool,
+    pub tornado: bool
     // Add more things here as we need them
 }
