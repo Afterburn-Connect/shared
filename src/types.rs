@@ -5,6 +5,26 @@ use ts_rs::TS;
 
 #[derive(Debug, Deserialize, Serialize, TS)]
 #[ts(export)]
+pub enum EventType {
+    Message,
+    MessageEdit,
+    MessageDelete,
+    UserJoin,
+    UserLeave,
+    UserEdit
+}
+
+#[derive(Debug, Deserialize, Serialize, TS)]
+#[ts(export)]
+pub struct Event {
+    type: EventType,
+    id: Option<String>,
+    message: Option<Message>,
+    user: Option<String>
+}
+
+#[derive(Debug, Deserialize, Serialize, TS)]
+#[ts(export)]
 pub struct User {
     pub username: String,
     pub password: String,
@@ -35,7 +55,7 @@ pub struct LoginRequest {
 pub struct StatusResponse {
     pub db: bool,
     pub cpu: f32,
-    pub mem: i32,
+    pub mem: u64,
     pub redis: bool,
     pub tornado: bool
     // Add more things here as we need them
